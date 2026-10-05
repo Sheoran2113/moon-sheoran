@@ -81,7 +81,7 @@ a { color: inherit; }
 .photo-gallery figure:hover img { transform: scale(1.015); }
 .gallery-back { display: inline-flex; margin-top: 3.5rem; text-decoration: none; border-bottom: 1px solid var(--apricot); padding-bottom: .35rem; }
 .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin: 1.5rem 0; }
-.featured-fashion-video { width: 100%; aspect-ratio: 9 / 16; max-height: 30rem; background: #111; object-fit: cover; }
+.featured-fashion-video { width: 100%; aspect-ratio: 9 / 16; max-height: 30rem; background: #111; object-fit: contain; }
 .video-grid > :only-child { grid-column: 1 / -1; }
 .media-type, .coming-soon { text-transform: uppercase; letter-spacing: .16em; font-size: .67rem; font-weight: 600; }
 .media-type { opacity: .72; }
@@ -139,4 +139,22 @@ footer a { text-decoration: none; }
 }
 @media (max-width: 480px) {
   .photo-gallery { columns: 1; }
+}
+
+/* Keep both portrait videos fully visible in browser fullscreen. */
+.featured-fashion-video:fullscreen {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: #111;
+}
+.featured-fashion-video:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: #111;
 }
